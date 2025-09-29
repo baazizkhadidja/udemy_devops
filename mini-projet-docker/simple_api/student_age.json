@@ -1,7 +1,7 @@
 {
     "student_ages": {
-        "alice":"12",
-        "bob":"13"
+        "alice":12,
+        "bob":13
     }
 
 }

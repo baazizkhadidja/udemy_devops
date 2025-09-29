@@ -25,9 +25,10 @@ def unauthorized():
     return make_response(jsonify({'error': 'Unauthorized access'}), 401)
 
 try:
-    student_age_file_path  = os.environ['student_age_file_path'] 
+    student_age_file_path  = os.environ.get('student_age_file_path', 'student_age.json')
 except NameError:
     student_age_file_path  = 'student_age.json'
+
 
 student_age_file = open(student_age_file_path, "r")
 student_age = json.load(student_age_file)
