@@ -16,7 +16,6 @@
 
             <?php
               if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submit']))
-              {
               $username = getenv('USERNAME');
               $password = getenv('PASSWORD');
               if ( empty($username) ) $username = 'fake_username';
@@ -30,11 +29,11 @@
 
 
 
-
-              $url = 'http://<api_ip_or_name:port>/pozos/api/v1.0/get_student_ages';
+              $url = 'http://api:5000/pozos/api/v1.0/get_student_ages';
               $list = json_decode(file_get_contents($url, false, $context), true);
               echo "<p style='color:red;; font-size: 20px;'>This is the list of the student with age</p>";
-              foreach($list["student_ages"] as $key => $value) {
+              foreach($list["student_ages"] as $student ) {
+                foreach($student as $key => $value) {
                   echo "- $key is $value years old <br>";
               }
              }
